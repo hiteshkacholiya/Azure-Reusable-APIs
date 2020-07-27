@@ -11,10 +11,10 @@
 .git
 .vs
 .vscode
-./Reusable.Functions/bin
-./Reusable.Functions/obj
-./Reusable.Functions/.vscode
-./Reusable.Functions/*.cproj
+.Reusable.Functions/bin
+.Reusable.Functions/obj
+.Reusable.Functions/.vscode
+.Reusable.Functions/*.cproj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
