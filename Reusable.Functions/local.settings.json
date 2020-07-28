@@ -3,7 +3,7 @@
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "LogName": "SHSLogAnalyticsCustomLogs",
+    "LogName": "Your-LogAnalytics-CustomLogs-Name",
     "FetchSecretFromKeyVaultAPI": "Your-Key-Vault-API",
     "clientId_UAMI": "Your-User-Assigned-Managed-Identity-Client-ID",
     "tenantId": "Your-Azure-Tenant-Id",
