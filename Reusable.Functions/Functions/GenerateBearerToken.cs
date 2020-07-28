@@ -54,7 +54,7 @@ namespace Reusable.Functions
             }
             catch (Exception ex)
             {
-                return new NotFoundObjectResult("");
+                return new NotFoundObjectResult($"\n GenerateBearerToken got an exception \n Time: { DateTime.Now} \n Exception{ ex.Message}");
 
             }
         }
