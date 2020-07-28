@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+
+    "keyVaultName": "Your-Key-Vault-Name-From-Where-Required-Secrets-To-Be-Fetched",
+    
+    "FetchSecretFromKeyVaultAPI": "Your-Key-Vault-API",
+    "clientId_UAMI": "Your-User-Assigned-Managed-Identity-Client-ID",
+    "tenantId": "Your-Azure-Tenant-Id",
+    "Ocp-Apim-Subscription-Key": "Your-API-Management-Subscription-Key"   
+  }
+}
