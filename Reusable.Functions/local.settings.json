@@ -9,6 +9,8 @@
     "FetchSecretFromKeyVaultAPI": "Your-Key-Vault-API",
     "clientId_UAMI": "Your-User-Assigned-Managed-Identity-Client-ID",
     "tenantId": "Your-Azure-Tenant-Id",
-    "Ocp-Apim-Subscription-Key": "Your-API-Management-Subscription-Key"   
+    "Ocp-Apim-Subscription-Key": "Your-API-Management-Subscription-Key",
+    "LogAnalyticsWorkspaceSharedKey": "Your-Key-Vault-Secret-For-Log-Analytics-Workspace-Shared-Key",
+    "LogAnalyticsWorkspaceID": "Your-Key-Vault-Secret-For-Log-Analytics-Workspace-ID"
   }
 }
