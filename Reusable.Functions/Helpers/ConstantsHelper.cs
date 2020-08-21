@@ -28,5 +28,12 @@ namespace Reusable.Functions
         public const string clientId_UAMI = "clientId_UAMI";
         public const string ocp_Apim_Subscription_Key = "Ocp-Apim-Subscription-Key";
         public static string FetchSecretFromKeyVaultAPI = "FetchSecretFromKeyVaultAPI";
+
+        //PushLogsToLogAnalytics Constants
+        #region Log Analytics Constants 
+        public static string logAnalyticsWorkspaceSharedKey = "LogAnalyticsWorkspaceSharedKey";
+        public static string logAnalyticsWorkspaceID = "LogAnalyticsWorkspaceID";
+        public static string TimeStampField = "";
+        #endregion
     }
 }
