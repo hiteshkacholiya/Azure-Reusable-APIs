@@ -63,7 +63,6 @@ namespace Reusable.Functions
             }
         }
 
-
         /// <summary>
         /// To push logs in Log Analytics Workspace
         /// </summary>
@@ -127,11 +126,9 @@ namespace Reusable.Functions
         /// <returns></returns>
         public static async Task<bool> IngestToLogAnalytics(string signature, string date, string datajson, string logFile, string workspaceId, ILogger log)
         {
-
             try
             {
                 string url = "https://" + workspaceId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.DefaultRequestHeaders.Add("Log-Type", logFile);
@@ -139,14 +136,10 @@ namespace Reusable.Functions
                 client.DefaultRequestHeaders.Add("x-ms-date", date);
                 client.DefaultRequestHeaders.Add("time-generated-field", GetTimeStampField());
 
-
                 HttpContent httpContent = new StringContent(datajson, Encoding.UTF8);
                 httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
                 var response = await client.PostAsync(new Uri(url), httpContent);
-
-
-
                 if (response.IsSuccessStatusCode)
                 {
                     HttpContent responseContent = response.Content;
@@ -161,7 +154,6 @@ namespace Reusable.Functions
                     log.LogInformation("Ingestion of Logs has failed with status code : " + response.StatusCode);
                     return false;
                 }
-
             }
             catch (Exception e)
             {
