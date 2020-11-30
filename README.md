@@ -6,4 +6,4 @@ These APIs can be used in a micro service based architecture. All APIs are indep
 
 ### 2. [API to Generate Bearer Token using User Assigned Managed Identity](https://www.c-sharpcorner.com/blogs/creating-an-azure-api-to-generate-bearer-token-against-azure-ad-using)
 
-### 3. [API to =Push Logs to Log Analytics](https://www.c-sharpcorner.com/blogs/creating-an-azure-api-for-custom-logging-in-azure-log-analytics)
+### 3. [API to Push Logs to Log Analytics](https://www.c-sharpcorner.com/blogs/creating-an-azure-api-for-custom-logging-in-azure-log-analytics)
