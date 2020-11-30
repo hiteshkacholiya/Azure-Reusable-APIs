@@ -7,10 +7,8 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
-
 namespace Reusable.Functions
 {
-
     /// <summary>
     /// This function is to inject logs into Log Analytics Workspace
     /// </summary>
@@ -72,14 +70,11 @@ namespace Reusable.Functions
                 {
                     return req.CreateResponse(HttpStatusCode.BadRequest, $"[Warning] Invalid Json Provided");
                 }
-
-
             }
             catch (System.Exception ex)
             {
                 return req.CreateResponse(HttpStatusCode.NotFound, $"{ex.Message}");
             }
-
         }
     }
 }
