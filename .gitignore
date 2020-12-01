@@ -10,7 +10,6 @@
 *.sln.docstates
 .git
 .vs
-.vscode
 
 .Reusable.Functions/bin
 .Reusable.Functions/obj
