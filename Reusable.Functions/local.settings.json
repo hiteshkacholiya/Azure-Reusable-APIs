@@ -3,7 +3,7 @@
   "Values": {
     "AzureWebJobsStorage": "",
     "clientId_UAMI": "gitcollab-uami01-clientId",
-    "FetchSecretFromKeyVaultAPI": "https://gitcollab-apim01.azure-api.net/GetKeyVaultSecret",
+    "FetchSecretFromKeyVaultAPI": "https://gitcollab-functions.azurewebsites.net/api/GetKeyVaultSecret?code=I009aS6IhS7NPDyf9ENk9tblTC08rviDOlJX0AqFrLI9aT4NfcyPnQ==&SecretName=",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "keyVaultName": "gitcollab-kv01",
     "LogAnalyticsWorkspaceID": "gitcollab-LA01-workspaceId",

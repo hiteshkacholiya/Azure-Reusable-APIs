@@ -29,14 +29,19 @@ namespace Reusable
             ILogger log)
         {
             string passwordGenerated = string.Empty;
-            dynamic jObject = new JObject();
-            jObject.LogFileName = ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.logName);
-            jObject.AutomationName = "Reusable";
-            jObject.ModuleName = "GeneratePassword";
-            dynamic logJObject = new JObject();
+
+            /* Uncomment below code if log analytics push is to be done*/
+            #region dynamic jobject creation for log analytics logs
+            //dynamic jObject = new JObject();
+            // jObject.LogFileName = ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.logName);
+            // jObject.AutomationName = "Reusable";
+            // jObject.ModuleName = "GeneratePassword";
+            // dynamic logJObject = new JObject();
+            #endregion
 
             log.LogInformation("GeneratePassword Function is called");
-            logJObject.LogInformation = "GeneratePassword Function is called";
+            /* Uncomment below code if log analytics push is to be done*/
+            //logJObject.LogInformation = "GeneratePassword Function is called";
             
             try
             {
@@ -45,42 +50,51 @@ namespace Reusable
 
                 if (!string.IsNullOrEmpty(passwordGenerated))
                 {
-                    logJObject.LogInformation += "\n Password has been generated.";
+                    log.LogInformation("Password has been generated.");
+                    /* Uncomment below code if log analytics push is to be done*/
+                    //logJObject.LogInformation += "\n Password has been generated.";
                     return new OkObjectResult(passwordGenerated);
                 }
                 else
                 {
-                   logJObject.LogInformation += "\n Exception has been occured in GeneratePassword. Please check Function logs under Monitor.";
+                   log.LogInformation("Exception has been occured in GeneratePassword. Please check Function logs under Monitor.");
+                   /* Uncomment below code if log analytics push is to be done*/
+                    //logJObject.LogInformation += "\n Exception has been occured in GeneratePassword. Please check Function logs under Monitor.";
                     return new NotFoundObjectResult(passwordGenerated);
                 }
                 
             }
             catch(Exception ex)
             {
-                logJObject.LogInformation += $"\n GeneratePassword got Exception \n Time: { DateTime.Now} \n Exception{ ex.Message}";
+                log.LogInformation($"GeneratePassword got Exception Time: { DateTime.Now} Exception{ ex.Message}");
+                /* Uncomment below code if log analytics push is to be done*/
+                //logJObject.LogInformation += $"\n GeneratePassword got Exception Time: { DateTime.Now} Exception{ ex.Message}";
                 return new NotFoundObjectResult("");
             }
-            finally
-            {
-                using(var client = new HttpClient())
-                {
-                    string logJson = logJObject.ToString(Newtonsoft.Json.Formatting.None);
-                    jObject.LogData = logJson;
-                    string myJson = jObject.ToString(Newtonsoft.Json.Formatting.None);
-                    //Invoking PushLogsToLogAnalytics API for logging in Log Analytics
-                    client.DefaultRequestHeaders.Add(ConstantsHelper.ocp_Apim_Subscription_Key, ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.ocp_Apim_Subscription_Key));
-                    var response = await client.PostAsync(ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.PushLogsToLogAnalyticsAPI), new StringContent(myJson, System.Text.Encoding.UTF8, "application/json"));
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
+            /* Uncomment below code if log analytics push is to be done*/
+            #region finally block for pushing logs into log analytics workspace
+            // finally
+            // {
+            //     using(var client = new HttpClient())
+            //     {
+            //         string logJson = logJObject.ToString(Newtonsoft.Json.Formatting.None);
+            //         jObject.LogData = logJson;
+            //         string myJson = jObject.ToString(Newtonsoft.Json.Formatting.None);
+            //         //Invoking PushLogsToLogAnalytics API for logging in Log Analytics
+            //         client.DefaultRequestHeaders.Add(ConstantsHelper.ocp_Apim_Subscription_Key, ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.ocp_Apim_Subscription_Key));
+            //         var response = await client.PostAsync(ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.PushLogsToLogAnalyticsAPI), new StringContent(myJson, System.Text.Encoding.UTF8, "application/json"));
+            //         if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            //         {
                         
-                        log.LogInformation("Logging is completed successfully with status code : " +response.StatusCode);
-                    }
-                    else
-                    {
-                        log.LogInformation("Logging is failed with status code : " + response.StatusCode);
-                    }
-                }
-            }
+            //             log.LogInformation("Logging is completed successfully with status code : " +response.StatusCode);
+            //         }
+            //         else
+            //         {
+            //             log.LogInformation("Logging is failed with status code : " + response.StatusCode);
+            //         }
+            //     }
+            // }
+            #endregion
         }
     }
 }
