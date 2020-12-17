@@ -25,5 +25,5 @@ This API is to generate a random string fulfilling the complexity which any comp
 -	It should have alphanumeric characters
 This API works on a Get method and gives you a random string which can be used for passwords or any other use.
 
-### 5. [API to generate a SSH Keys using SshKeyGenerator] ()
+### 5. [API to generate a SSH Keys using SshKeyGenerator]()
 This API is to generate SSH keys using SshKeyGenerator library of .Net. It generates both kind of keys – private and public, and these keys can be used for any Linux based Azure VM. This API can be integrated with any automation where SSH key generation is to be done dynamically. It requires Virtual Machine Name (VMName) as input to generate the SSH key. 
