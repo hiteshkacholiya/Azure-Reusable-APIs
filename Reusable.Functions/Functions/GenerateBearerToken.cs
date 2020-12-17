@@ -18,7 +18,7 @@ namespace Reusable.Functions
             ILogger log)
         {
             string token = string.Empty;
-            log.LogInformation("CreateBearerToken Function is called");
+            log.LogInformation("GenerateBearerToken Function is called");
 
             try
             {

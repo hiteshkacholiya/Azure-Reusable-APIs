@@ -2,15 +2,15 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "",
+    "clientId_UAMI": "gitcollab-uami01-clientId",
+    "FetchSecretFromKeyVaultAPI": "https://gitcollab-functions.azurewebsites.net/api/GetKeyVaultSecret?code=I009aS6IhS7NPDyf9ENk9tblTC08rviDOlJX0AqFrLI9aT4NfcyPnQ==&SecretName=",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-
-    "keyVaultName": "Your-Key-Vault-Name-From-Where-Required-Secrets-To-Be-Fetched",
-    
-    "FetchSecretFromKeyVaultAPI": "Your-Key-Vault-API",
-    "clientId_UAMI": "Your-User-Assigned-Managed-Identity-Client-ID",
-    "tenantId": "Your-Azure-Tenant-Id",
-    "Ocp-Apim-Subscription-Key": "Your-API-Management-Subscription-Key",
-    "LogAnalyticsWorkspaceSharedKey": "Your-Key-Vault-Secret-For-Log-Analytics-Workspace-Shared-Key",
-    "LogAnalyticsWorkspaceID": "Your-Key-Vault-Secret-For-Log-Analytics-Workspace-ID"
+    "keyVaultName": "gitcollab-kv01",
+    "LogAnalyticsWorkspaceID": "gitcollab-LA01-workspaceId",
+    "LogAnalyticsWorkspaceSharedKey": "gitcollab-LA01-shared-key",
+    "LogName": "gitcollabCustomLogs",
+    "Ocp-Apim-Subscription-Key": "060962a89d4a4a34ad916f6f77beed75",
+    "PushLogsToLogAnalyticsAPI": "https://gitcollab-apim01.azure-api.net/PushLogsToLogAnalytics",
+    "tenantId": "gitcollab-tenantId"
   }
 }

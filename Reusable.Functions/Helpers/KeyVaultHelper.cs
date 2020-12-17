@@ -25,17 +25,20 @@ namespace Reusable.Functions
                 using (var client = new HttpClient())
                 {
                     //Invoking FetchSecretFromKeyVaultAPI to fetch secret value
-                    string Uri = ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.FetchSecretFromKeyVaultAPI) + "?SecretName=" + secretName;
+                    string Uri = ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.FetchSecretFromKeyVaultAPI) + secretName;
                     
-                    //Adding subscription key header to the request
-                    client.DefaultRequestHeaders.Add(ConstantsHelper.ocp_Apim_Subscription_Key, ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.ocp_Apim_Subscription_Key));
-                    
+                    if(Uri.Contains("azure-api.net"))
+                    {
+                      //Adding subscription key header to the request
+                      client.DefaultRequestHeaders.Add(ConstantsHelper.ocp_Apim_Subscription_Key, ConstantsHelper.GetEnvironmentVariable(ConstantsHelper.ocp_Apim_Subscription_Key));
+                    }
                     //Get response
                     var response = await client.GetAsync(Uri).ConfigureAwait(false);
                     
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         value = await response.Content.ReadAsStringAsync();
+                        log.LogInformation("Fetched secret value from key vault");
                         return value;
                     }
                     else
